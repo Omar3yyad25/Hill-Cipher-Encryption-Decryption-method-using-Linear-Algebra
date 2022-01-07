@@ -1,1 +1,1 @@
-# Messages-Encryption-using-Linear-Algebra
+# Hill Cipher Encryption/Decryption method using Linear Algebra
