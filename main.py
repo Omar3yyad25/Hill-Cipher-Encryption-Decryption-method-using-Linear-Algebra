@@ -5,8 +5,14 @@ from tkinter import *
 
 
 def clickEncrypt():
-    result = Label ("The encrypted message is:" + encrypt(messageEntry.get()))
-    result.pack()
+
+   result = Label (text ="The encrypted message is:" + encrypt(messageEntry.get()))
+   result.pack()
+
+def clickDecrypt():
+   result = Label (text ="The Original message is:" + decyrpt(DecyrptmessageEntry.get()))
+   result.pack()
+
 
 master = Tk()
 master.title('Hill Cipher Encryption and Decryption')
@@ -17,11 +23,16 @@ messageLabel.pack()
 messageEntry= Entry()
 messageEntry.pack()
 
-EncryptMessageLabel= Label (text ="Encrypted Message: ")
-EncryptMessageLabel.pack()
+btn1 = Button (text = "Encrypt", command = clickEncrypt)
+btn1.pack()
 
-btn = Button (text = "Encrypt", command = clickEncrypt())
-btn.pack()
+DecryptmessageLabel= Label (text ="Encrypted Message: ")
+DecryptmessageLabel.pack()
+DecyrptmessageEntry= Entry()
+DecyrptmessageEntry.pack()
+
+btn2 = Button (text = "Decrypt", command = clickDecrypt)
+btn2.pack()
 
 master.mainloop()
 

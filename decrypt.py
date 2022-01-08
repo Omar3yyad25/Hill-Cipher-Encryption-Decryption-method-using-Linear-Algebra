@@ -1,42 +1,29 @@
-# Python Script for Hill.
-# EFREI Promo 2019,
-# BOUQUET Julien <julien.bouquet@efrei.net>
-# MARTIN Alexandre <alexandre.martin@efrei.net>
-
 import numpy as np
 from sympy import Matrix
 import string
 
-# Define variables
-dimension = 3 # Your N
-key = np.matrix([[-1, 2, 0], [2, -4, -1], [0, 1, 1]]) # Your key
-message = 'OKZNPPSMRIKRBUKHMR' # You message
+def decyrpt(x: string):
+    dim= 3  #The dimension of the square matrix
+    keyMatrix = np.matrix([[-1, 2, 0], [2, -4, -1], [0, 1, 1]]) # The matrix key
+    Encryptedmessage = x   #the word which got from the argument
 
-# Generate the alphabet
-alphabet = string.ascii_uppercase
+    alphabet = string.ascii_letters #corresponding each letter to ascii table
 
-# Encrypted message
-decryptedMessage = ""
+    decryptedMessage = ""  #initialize the decrypted message
 
-# Get the decrypt key
-key = Matrix(key)
-key = key.inv_mod(26)
-key = key.tolist()
+    keyMatrix = Matrix(keyMatrix)
+    keyMatrix = keyMatrix.inv_mod(26)    # These functions to reverse the encrypt process
+    keyMatrix = keyMatrix.tolist()
 
-# Group message in vectors and generate crypted message
-for index, i in enumerate(message):
-    values = []
-    # Create the N blocs
-    if index % dimension == 0:
-        for j in range(0, dimension):
-            values.append([alphabet.index(message[index + j])])
-        # Create the vectors and work with them
-        vector = np.matrix(values)
-        vector = key * vector
-        vector %= 26
-        for j in range(0, dimension):
-            decryptedMessage += alphabet[vector.item(j)]
-
-
-# Show the result
-print(decryptedMessage)
+                    # put the corresponding value in form of vectors to get the original message
+    for index, i in enumerate(Encryptedmessage):
+        values = []
+        if index % dim == 0:
+            for j in range(0, dim):
+                values.append([alphabet.index(Encryptedmessage[index + j])])
+            vector = np.matrix(values)
+            vector = keyMatrix * vector
+            vector %= 26
+            for j in range(0, dimension):
+                decryptedMessage += alphabet[vector.item(j)]
+    return (decryptedMessage) #return the message
