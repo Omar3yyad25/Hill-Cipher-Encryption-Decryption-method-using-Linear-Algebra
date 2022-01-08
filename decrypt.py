@@ -7,7 +7,7 @@ def decyrpt(x: string):
     keyMatrix = np.matrix([[-1, 2, 0], [2, -4, -1], [0, 1, 1]]) # The matrix key
     Encryptedmessage = x   #the word which got from the argument
 
-    alphabet = string.ascii_letters #corresponding each letter to ascii table
+    letters = string.ascii_letters #corresponding each letter to ascii table
 
     decryptedMessage = ""  #initialize the decrypted message
 
@@ -20,10 +20,10 @@ def decyrpt(x: string):
         values = []
         if index % dim == 0:
             for j in range(0, dim):
-                values.append([alphabet.index(Encryptedmessage[index + j])])
+                values.append([letters.index(Encryptedmessage[index + j])])
             vector = np.matrix(values)
             vector = keyMatrix * vector
             vector %= 26
-            for j in range(0, dimension):
-                decryptedMessage += alphabet[vector.item(j)]
+            for j in range(0, dim):
+                decryptedMessage += letters[vector.item(j)]
     return (decryptedMessage) #return the message
