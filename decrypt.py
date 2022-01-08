@@ -9,8 +9,8 @@ import string
 
 # Define variables
 dimension = 3 # Your N
-key = np.matrix([[6, 24, 1], [13, 16, 10], [20, 17, 15]]) # Your key
-message = 'LRZBHPDOG' # You message
+key = np.matrix([[-1, 2, 0], [2, -4, -1], [0, 1, 1]]) # Your key
+message = 'OKZNPPSMRIKRBUKHMR' # You message
 
 # Generate the alphabet
 alphabet = string.ascii_uppercase

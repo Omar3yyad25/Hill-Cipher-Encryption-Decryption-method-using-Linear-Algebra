@@ -7,22 +7,10 @@ import numpy as np
 import string
 import random
 
-x =1
-y = 1
-
 # Define variables
-dimension = int (input ("Enter your dimension: ")) # Your N
-key = []# Your key
-for i in range (dimension):
-    a=[]
-    for j in range (dimension):
-        print ("Enter your element in", x,y,": ")
-        a.append(int(input()))
-        y+=1
-    key.append(a)
-    x+=1
-    y=1
-message = input ("Put your word: ") # Your message
+dimension =3
+key = np.matrix([[-1,2,0],[2,-4,-1],[0,1,1]])# Your key
+message = "ILOVELINEARALGEBRA" # Your message
 
 # Generate the alphabet
 alphabet = string.ascii_uppercase
