@@ -24,6 +24,6 @@ def decyrpt(x: string):
             vector = np.matrix(values)
             vector = keyMatrix * vector
             vector %= 26
-            for j in range(0, dimension):
+            for j in range(0, dim):
                 decryptedMessage += letters[vector.item(j)]
     return (decryptedMessage) #return the message
