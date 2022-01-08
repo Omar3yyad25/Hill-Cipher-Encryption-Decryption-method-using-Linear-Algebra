@@ -1,3 +1,3 @@
 Made by:
-  Omar Ayyad 
+  Omar Ayyad &
   Mohamed Essam
